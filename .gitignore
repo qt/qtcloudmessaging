@@ -1,0 +1,10 @@
+.DS_Store
+build*
+*.pro.*
+.qmake.stash
+*.autosave
+Makefile.*
+/mkspecs*
+.moc/
+.pch/
+.obj/

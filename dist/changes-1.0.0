@@ -1,0 +1,23 @@
+Qt Cloud Messaging 1.0
+
+Qt Cloud Messaging 1.0 is supported from Qt 5.x onwards.
+
+For more details on the features and fixes, refer to the online documentation
+included in this distribution. The documentation is also available online:
+
+  http://doc.qt.io/QtCloudMessaging
+
+General Improvements
+--------------------
+Introducing new component for Qt
+
+API changes (source break)
+--------------------------
+
+
+New features
+------------
+- Introducing new component for Qt
+
+Fixed issues
+------------

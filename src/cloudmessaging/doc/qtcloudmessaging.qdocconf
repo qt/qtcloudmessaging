@@ -1,0 +1,51 @@
+include($QT_INSTALL_DOCS/global/qt-module-defaults.qdocconf)
+
+
+project                                     = QtCloudMessaging
+description                                 = Qt Cloud Messaging Documentation
+version                                     = $QT_VERSION
+
+qhp.projects                                = QtCloudMessaging
+
+qhp.QtCloudMessaging.file                              = QtCloudMessaging.qhp
+qhp.QtCloudMessaging.namespace                         = org.qt-project.qtcloudmessaging.$QT_VERSION_TAG
+qhp.QtCloudMessaging.virtualFolder                     = qtcloudmessaging
+qhp.QtCloudMessaging.indexTitle                        = Qt CloudMessaging
+qhp.QtCloudMessaging.indexRoot                         =
+
+qhp.QtCloudMessaging.filterAttributes                  = qcloudmessaging $QT_VERSION qtrefdoc
+qhp.QtCloudMessaging.customFilters.Qt.name             = QtCloudMessaging $QT_VERSION
+qhp.QtCloudMessaging.customFilters.Qt.filterAttributes = qcloudmessaging $QT_VERSION
+
+qhp.QtCloudMessaging.subprojects                       = classes
+qhp.QtCloudMessaging.subprojects.classes.title         = C++ Classes
+qhp.QtCloudMessaging.subprojects.classes.indexTitle    = Qt CloudMessaging C++ Classes
+qhp.QtCloudMessaging.subprojects.classes.selectors     = class fake:headerfile
+qhp.QtCloudMessaging.subprojects.classes.sortPages     = true
+
+# The outputdir variable specifies the directory
+# where QDoc will put the generated documentation.
+
+outputdir = html
+
+# The headerdirs variable specifies the directories
+# containing the header files associated
+# with the .cpp source files used in the documentation.
+
+headerdirs += ..
+
+# The sourcedirs variable specifies the
+# directories containing the .cpp or .qdoc
+# files used in the documentation.
+
+sourcedirs += ..
+
+# The exampledirs variable specifies the directories containing
+# the source code of the example files.
+
+#exampledirs += .
+
+# The imagedirs variable specifies the
+# directories containing the images used in the documentation.
+
+#imagedirs += ./images
