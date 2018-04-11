@@ -67,13 +67,15 @@ QCloudMessagingRestApi::QCloudMessagingRestApi(QObject *parent) :
     QObject(parent),
     d(new QCloudMessagingRestApiPrivate)
 {
-
-    d->m_online_state = d->m_network_info.isOnline();
     d->m_wait_for_last_request_response = false;
     d->m_waiting_counter = 0;
 
+#ifndef QT_NO_BEARERMANAGEMENT
+    d->m_online_state = d->m_network_info.isOnline();
+
     connect(&(d->m_network_info), &QNetworkConfigurationManager::onlineStateChanged,
             this, &QCloudMessagingRestApi::onlineStateChanged);
+#endif
 
     connect(&(d->m_manager), &QNetworkAccessManager::authenticationRequired,
             this, &QCloudMessagingRestApi::provideAuthentication);

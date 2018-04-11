@@ -30,10 +30,13 @@ INCLUDEPATH += $$(GOOGLE_FIREBASE_SDK)/include
 
 android {
     QT += androidextras
-
-    LIBS += $$(GOOGLE_FIREBASE_SDK)/libs/android/armeabi-v7a/gnustl/libmessaging.a
-    LIBS += $$(GOOGLE_FIREBASE_SDK)/libs/android/armeabi-v7a/gnustl/libapp.a
-
+    equals(ANDROID_TARGET_ARCH, x86) {
+        LIBS += $$(GOOGLE_FIREBASE_SDK)/libs/android/x86/gnustl/libmessaging.a
+        LIBS += $$(GOOGLE_FIREBASE_SDK)/libs/android/x86/gnustl/libapp.a
+    } else {
+        LIBS += $$(GOOGLE_FIREBASE_SDK)/libs/android/armeabi-v7a/gnustl/libmessaging.a
+        LIBS += $$(GOOGLE_FIREBASE_SDK)/libs/android/armeabi-v7a/gnustl/libapp.a
+    }
 } else: macos {
     LIBS += -F$$(GOOGLE_FIREBASE_SDK)/frameworks/darwin \
        -framework firebase \

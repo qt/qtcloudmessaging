@@ -1,0 +1,58 @@
+/****************************************************************************
+**
+** Copyright (C) 2018 The Qt Company Ltd.
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of the documentation of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and The Qt Company. For licensing terms
+** and conditions see https://www.qt.io/terms-conditions. For further
+** information use the contact form at https://www.qt.io/contact-us.
+**
+** GNU Free Documentation License Usage
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file. Please review the following information to ensure
+** the GNU Free Documentation License version 1.3 requirements
+** will be met: https://www.gnu.org/licenses/fdl-1.3.html.
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \example firebase/pushnotification
+    \title Firebase Push Notification Example
+    \ingroup examples-qtcloudmessaging
+    \brief Demonstrates Firebase Cloud Messaging support with Qt.
+
+    \image pushnotification-example.png Screenshot of the example
+
+    \e {Firebase Cloud Messaging (FCM)} is a messaging solution. It reliably
+    delivers messages via the \e FCM servers. Using \e FCM, you can send
+    notification messages to notify a client app that a new message is available
+    to sync. To learn more, visit \l
+    {https://firebase.google.com/docs/cloud-messaging}.
+
+    This example demonstrates receiving push notifications from the \e {Firebase
+    Console}, and then displays the content on the screen in JSON format. You
+    can send push notifications to devices running this example by using the
+    notifications composer in the \e {Firebase Console}. The fields such as \e
+    message-text and \e custom-data are sent to this application in a payload
+    composed of key/value pairs.
+
+    To use this example, the user must install \e {Firebase SDK} to their
+    environment. See https://firebase.google.com/docs/android/setup
+    \note Set environment variable \e GOOGLE_FIREBASE_SDK to the root directory
+    of \e {Firebase C++ SDK}.
+    \note Download the registered \c google-service.json from the \e {Firebase
+    Console} and save it as \c android-sources/google-services.json, replacing
+    the sample file.
+
+    \include examples-run.qdocinc
+*/

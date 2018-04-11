@@ -43,7 +43,10 @@
 #include <QNetworkReply>
 #include <QTimer>
 #include <QNetworkAccessManager>
+
+#ifndef QT_NO_BEARERMANAGEMENT
 #include <QNetworkConfigurationManager>
+#endif
 
 QT_BEGIN_NAMESPACE
 
@@ -74,7 +77,9 @@ public:
     QTimer m_msgTimer;
     bool m_online_state;
     QList <QCloudMessagingNetworkMessage> m_network_requests;
+#ifndef QT_NO_BEARERMANAGEMENT
     QNetworkConfigurationManager m_network_info;
+#endif
     int m_waiting_counter;
     int m_server_message_timer;
     int m_server_wait_for_response_counter;
