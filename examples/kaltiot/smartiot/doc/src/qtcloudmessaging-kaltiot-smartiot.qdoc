@@ -1,0 +1,63 @@
+/****************************************************************************
+**
+** Copyright (C) 2018 The Qt Company Ltd.
+** Contact: https://www.qt.io/licensing/
+**
+** This file is part of the documentation of the Qt Toolkit.
+**
+** $QT_BEGIN_LICENSE:FDL$
+** Commercial License Usage
+** Licensees holding valid commercial Qt licenses may use this file in
+** accordance with the commercial license agreement provided with the
+** Software or, alternatively, in accordance with the terms contained in
+** a written agreement between you and The Qt Company. For licensing terms
+** and conditions see https://www.qt.io/terms-conditions. For further
+** information use the contact form at https://www.qt.io/contact-us.
+**
+** GNU Free Documentation License Usage
+** Alternatively, this file may be used under the terms of the GNU Free
+** Documentation License version 1.3 as published by the Free Software
+** Foundation and appearing in the file included in the packaging of
+** this file. Please review the following information to ensure
+** the GNU Free Documentation License version 1.3 requirements
+** will be met: https://www.gnu.org/licenses/fdl-1.3.html.
+** $QT_END_LICENSE$
+**
+****************************************************************************/
+
+/*!
+    \example kaltiot/smartiot
+    \title Kaltiot Push Notification Example
+    \ingroup examples-qtcloudmessaging
+    \brief Demonstrates Kaltiot Smart IoT support with Qt.
+
+    \image smartiot-example.png Screenshot of the example
+
+    \e {Kaltiot Smart IoT} is a bi-directional messaging solution. It provides
+    battery optimized communication for resource-constrained devices in lossy
+    wireless networks. Using \e {Kaltiot Smart IoT}, you can send notification
+    messages to notify a client app that a new message is available to sync. To
+    learn more, visit \l {https://kaltiot.com/iot}.
+
+    This example works on both \e Linux64 and \e {Raspberry Pi} devices. It
+    demonstrates receiving push notifications from the \e {Kaltiot IoT Cloud},
+    and then displays the content on the screen. You can send push notifications
+    to the devices running this example by using the \e IoT-Devices service in
+    the \e {Kaltiot Console} or \e {Kaltiot HTTP Rest API} with \e curl or \e
+    wget. Filter children by the \c providerId (\e KaltiotSmartIoT) and look for
+    one with the same \e RID (resource ID) as the \c onClientTokenReceived
+    callback reports.
+
+    To use this example, the user must install \e {Kaltiot Smart IoT SDK} in
+    their environment. Register and download via the \e {Kaltiot Console} \l
+    {https://console.torqhub.io?iot}
+    \note Set environment variable \e KALTIOT_SDK to the root directory of \e
+    {Kaltiot Smart IoT SDK}.
+    \note Copy the \e {IoT-Credentials API Key} from the \e {Kaltiot Console}
+    and replace the value of \e SERVER_API_KEY in \c smartiot.cpp.
+    \note Start the gateway daemon of \e {Kaltiot Smart IoT} and run it in the
+    background before this application starts (\c {$KALTIOT_SDK/ks_gw
+    --ipc-socket-path=0.0.0.0:50000 &}).
+
+    \include examples-run.qdocinc
+*/
