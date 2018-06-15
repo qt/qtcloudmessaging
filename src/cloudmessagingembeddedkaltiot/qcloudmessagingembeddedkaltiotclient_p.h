@@ -77,6 +77,7 @@ public:
     QThread m_clientThread;
     QTimer m_threadTimer;
     ks_gw_client_instance_t m_kaltiot_client_instance;
+    QString daemonIpcPath;
 };
 
 QT_END_NAMESPACE

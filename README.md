@@ -94,6 +94,7 @@ Embedded-Kaltiot requirements:
         client_params["address"] = "IOTSensor1";
         client_params["version"] = "1.0";
         client_params["customer_id"] = "Kaltiot";
+        clientParams[QStringLiteral("kaltiot_daemon_path")] = QStringLiteral("127.0.0.1:50000");
 
         QVariantList channels;
         channels.append("Temperatures");

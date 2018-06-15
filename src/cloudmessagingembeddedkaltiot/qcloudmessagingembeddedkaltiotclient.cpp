@@ -79,6 +79,7 @@ QString QCloudMessagingEmbeddedKaltiotClient::connectClient(const QString &clien
     d->m_address = params.value(QStringLiteral("address")).toString();
     d->m_version = params.value(QStringLiteral("version")).toString();
     d->m_customer_id = params.value(QStringLiteral("customer_id")).toString();
+    d->daemonIpcPath = params.value(QStringLiteral("kaltiot_daemon_path")).toString();
 
     channels = params.value(QStringLiteral("channels")).toStringList();
 
@@ -143,7 +144,12 @@ bool QCloudMessagingEmbeddedKaltiotClient::make_kaltiot_client_registration()
 
     ks_gw_client_init(&d->m_kaltiot_client_instance);
 
-    if (!ks_gw_client_connect(&d->m_kaltiot_client_instance, NULL))
+    const char *connectPath = nullptr;
+    QByteArray daemonIpcByteArray = d->daemonIpcPath.toLatin1();
+    if (!daemonIpcByteArray.isEmpty())
+        connectPath = daemonIpcByteArray.constData();
+
+    if (!ks_gw_client_connect(&d->m_kaltiot_client_instance, connectPath))
         return false; // Failed to connect!;
 
     if (d->m_rid.isEmpty()) {
