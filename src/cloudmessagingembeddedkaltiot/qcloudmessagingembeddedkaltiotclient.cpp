@@ -84,7 +84,7 @@ QString QCloudMessagingEmbeddedKaltiotClient::connectClient(const QString &clien
 
     for (int i = 0; i < channels.count(); i++) {
         bool new_channel = true;
-        for (int j = 0; i < d->m_channels.count(); j++) {
+        for (int j = 0; j < d->m_channels.count(); j++) {
             if (channels[i] == d->m_channels[j])
                 new_channel = false;
         }
@@ -94,7 +94,10 @@ QString QCloudMessagingEmbeddedKaltiotClient::connectClient(const QString &clien
     }
 
     setClientToken(clientId);
-    make_kaltiot_client_registration();
+
+    if (!make_kaltiot_client_registration())
+        return QString();
+
     runBackgroundThread();
     return d->m_address;
 }
@@ -124,7 +127,7 @@ void QCloudMessagingEmbeddedKaltiotClient::runBackgroundThread()
 /*!
  * \brief QCloudMessagingEmbeddedKaltiotClient::make_kaltiot_client_registration
  */
-void QCloudMessagingEmbeddedKaltiotClient::make_kaltiot_client_registration()
+bool QCloudMessagingEmbeddedKaltiotClient::make_kaltiot_client_registration()
 {
 #ifdef EMBEDDED_AND_DESKTOP_OS
 
@@ -140,10 +143,8 @@ void QCloudMessagingEmbeddedKaltiotClient::make_kaltiot_client_registration()
 
     ks_gw_client_init(&d->m_kaltiot_client_instance);
 
-    if (!ks_gw_client_connect(&d->m_kaltiot_client_instance, NULL)) {
-        // Failed to connect!;
-        return;
-    }
+    if (!ks_gw_client_connect(&d->m_kaltiot_client_instance, NULL))
+        return false; // Failed to connect!;
 
     if (d->m_rid.isEmpty()) {
         d->m_rid = d->m_client_settings.value("clients/" + d->m_address + "/rid").toString();
@@ -182,6 +183,7 @@ void QCloudMessagingEmbeddedKaltiotClient::make_kaltiot_client_registration()
         setClientToken(d->m_rid);
 
 #endif
+    return true;
 }
 
 /*!

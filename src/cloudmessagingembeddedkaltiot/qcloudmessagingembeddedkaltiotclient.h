@@ -83,7 +83,7 @@ public:
     ks_gw_client_instance_t *getKaltiotEngineInstance();
 
 private:
-    void make_kaltiot_client_registration();
+    bool make_kaltiot_client_registration();
     void runBackgroundThread();
 
     QScopedPointer<QCloudMessagingEmbeddedKaltiotClientPrivate> d;

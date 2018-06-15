@@ -138,14 +138,11 @@ QString QCloudMessagingProvider::connectClientToProvider(const QString &clientId
             connect(serviceClient, &QCloudMessagingClient::clientStateChanged,
                     this, &QCloudMessagingProvider::clientStateChanged);
 
-            serviceClient->connectClient(clientId, parameters);
-
             d->m_QtCloudMessagingClients.insert(clientId, serviceClient);
 
-            return clientId;
+            return serviceClient->connectClient(clientId, parameters);
         }
     }
-
     return QString();
 }
 
@@ -195,13 +192,10 @@ void QCloudMessagingProvider::disconnectClient(const QString &clientId,
 bool QCloudMessagingProvider::removeClient(const QString &clientId)
 {
     if (!d->m_providerId.isEmpty() && d->m_QtCloudMessagingClients[clientId]) {
-
         disconnectClient(clientId);
-        d->m_QtCloudMessagingClients.remove(clientId);
-
+        delete d->m_QtCloudMessagingClients.take(clientId);
         return true;
     }
-
     return false;
 }
 
