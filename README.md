@@ -85,7 +85,7 @@ Embedded-Kaltiot requirements:
 
         // Provider based init parameters are given with QVariantMap
         QVariantMap provider_params;
-        provider_params["API_KEY"] = "Your API key from the Kaltiot console for server communication";
+        provider_params["SERVER_API_KEY"] = "Your API key from the Kaltiot console for server communication";
 
         // Creating name for provider which can be used cross your app.
         pushServices->registerProvider("KaltiotService", kaltiotPushService, provider_params);
@@ -238,6 +238,3 @@ Embedded-Kaltiot requirements:
             pushServices.sendMessage(JSON.stringify(data), "GoogleFireBase", "MobileClient", "", "ChatRoom");
         }
     }
-
-
-

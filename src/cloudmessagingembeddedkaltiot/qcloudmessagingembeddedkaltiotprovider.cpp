@@ -79,7 +79,7 @@ bool QCloudMessagingEmbeddedKaltiotProvider::registerProvider(const QString  &se
     setServiceState(QtCloudMessagingProviderRegistered);
 
     // Get the API key for HTTP communication
-    d->m_key = parameters.value(QStringLiteral("API_KEY")).toString();
+    d->m_key = parameters.value(QStringLiteral("SERVER_API_KEY")).toString();
     d->m_restInterface.setAuthKey(d->m_key);
 
     return QtCloudMessagingProviderRegistered;
